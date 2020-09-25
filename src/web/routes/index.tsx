@@ -9,6 +9,7 @@ import NotFound from '@components/NotFound';
 const { lazy, Suspense } = React;
 
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
+const right = lazy(() => import(/* webpackChunkName:"Nav" */ '@components/RightComponet'));
 interface YDProps extends RouteProps {
   auth?: boolean;
 }
@@ -23,7 +24,7 @@ export const routes: YDProps[] = [
     path: '/AboutUs',
     exact: true,
     component: AboutUs,
-  }
+  },
 ];
 
 // 对状态属性进行监听
