@@ -1,6 +1,5 @@
 // import ArtCatalog from '@components/Article/Catalog';
 import ArtContent from '@components/Article/Content';
-import Terminal from '@components/Terminal';
 import { storeContext } from '@tools/StoreProvider';
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
