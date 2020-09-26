@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './home.css';
 import { NavLink, Link } from 'react-router-dom';
+import HeaderBlock from '@components/Headerblock';
 const Home = () => {
   return (
     <div className="components-home">

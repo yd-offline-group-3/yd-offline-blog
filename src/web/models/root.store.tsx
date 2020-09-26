@@ -2,6 +2,7 @@ import { types, Instance } from 'mobx-state-tree';
 import { HomeModel } from './home.store';
 import { DemoModel } from './demo.store';
 import { observable } from 'mobx';
+import { HeaderModel } from './header.store';
 
 export interface IRootStoreModel extends Instance<typeof RootStore> { }
 export type RootStoreType = typeof RootStore.Type;
@@ -15,6 +16,7 @@ export const RootStore = types.model('RootStore', {
     ],
     id: 0,
   }),
+  header: types.optional(HeaderModel, {}),
 });
 
 export const createStore = () => RootStore.create({});

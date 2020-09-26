@@ -4,8 +4,3 @@ body {
   background-size: cover;
   /* background-image: url('../../assets/images/bg.jpg') !important; */
 }
-.components-home {
-  & h2 {
-    color: orange;
-  }
-}

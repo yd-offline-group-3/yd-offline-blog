@@ -3,8 +3,8 @@ import {
   Route, Switch, RouteProps, Redirect,
 } from 'react-router-dom';
 import Loading from '@components/Loading';
-import Home from '@components/Home';
 import NotFound from '@components/NotFound';
+import Home from '@pages/Home';
 // import { string } from "prop-types";
 const { lazy, Suspense } = React;
 
@@ -21,6 +21,12 @@ export const routes: YDProps[] = [
     // auth: true,
   },
   {
+    path: '/page/:page',
+    exact: true,
+    component: Home,
+    // auth: true,
+  },
+  {
     path: '/AboutUs',
     exact: true,
     component: AboutUs,
@@ -32,7 +38,6 @@ const Routes = (token: string) => (
   <Suspense fallback={<Loading />}>
     <Switch>
       {routes.map((r, index) => {
-        console.log('🍊', index);
         const { path, exact, component } = r;
         const LazyCom = component;
         return (
@@ -51,7 +56,7 @@ const Routes = (token: string) => (
             ) : (
                   <Redirect
                     to={{
-                      pathname: '/AboutUs',
+                      pathname: '/',
                       state: { from: props.location },
                     }}
                   />

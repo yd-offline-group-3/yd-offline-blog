@@ -9,7 +9,7 @@ import Catalog from '../Catalog';
 import './index.css';
 
 interface ContentRouterProps {
-    id: string;
+    post: string;
 }
 
 // type CategoriesResult = Array<{ ContentList: Array<{ content: string, date: string }>, type: string }>;
@@ -33,7 +33,7 @@ interface ContentRouterProps {
 // }
 
 const Content: React.FC<RouteComponentProps<ContentRouterProps>> = (routerProps: {
-    match: { params: { id: string } };
+    match: { params: { post: string } };
 }) => {
 
     const [data, setData] = useState(null);
@@ -47,20 +47,21 @@ const Content: React.FC<RouteComponentProps<ContentRouterProps>> = (routerProps:
     // let rnd: Rnd;
 
     useEffect(() => {
-        fetch('api/blog-content',
+        let post = routerProps.match?.params?.post;
+        fetch('/api/blog-content',
             {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    'post': '202009/02/'
+                    'post': post
                 })
             }).then(
                 (res) => res.json()
-            ).then(data => setData(data));
+            ).then(data => setData(data.result));
 
-        // fetch('api/blog-categories',
+        // fetch('/api/blog-categories',
         //     {
         //         method: "GET",
         //         headers: {

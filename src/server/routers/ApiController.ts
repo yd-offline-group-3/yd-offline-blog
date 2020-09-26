@@ -26,7 +26,11 @@ class ApiController {
   async actionBlogList(
     ctx: Router.IRouterContext,
   ): Promise<void> {
-    const data = await this.apiService.getBlogList();
+    let page = Number(ctx.query.page);
+    if(!page || isNaN(page)){
+      page = 1;
+    }
+    const data = await this.apiService.getBlogList(page);
     ctx.body = {
       ...data,
     };
@@ -75,8 +79,7 @@ class ApiController {
         const postData: { post: string } = JSON.parse(dataBuffer.toString());
         const data = await this.apiService.getBlogContent(postData.post);
         ctx.body = {
-          htmlStr: data.htmlStr,
-          catalogList: data.catalogList
+          ...data,
         };
         resolve();
       });
