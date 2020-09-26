@@ -1,4 +1,14 @@
 .home-container{
     display:flex;
     justify-content: center;
+    & .list-container {
+        width: 750px;
+        & #main {
+            paddding-top: 40px;
+            & h1 {
+                font-size: 2em;
+                margin: 0.67em 0;
+            }
+        }
+    }
 }
