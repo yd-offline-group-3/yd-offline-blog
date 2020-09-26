@@ -5,9 +5,10 @@ import {
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
 import Home from '@pages/Home';
+
 // import { string } from "prop-types";
 const { lazy, Suspense } = React;
-
+const Audition = lazy(() => import(/* webpackChunkName:"Audition" */ '@components/Course/'));
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
 const right = lazy(() => import(/* webpackChunkName:"Nav" */ '@components/RightComponet'));
 interface YDProps extends RouteProps {
@@ -25,6 +26,11 @@ export const routes: YDProps[] = [
     exact: true,
     component: Home,
     // auth: true,
+  },
+  {
+    path: '/course',
+    exact: true,
+    component: Audition,
   },
   {
     path: '/AboutUs',
