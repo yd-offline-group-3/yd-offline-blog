@@ -1,4 +1,4 @@
-import ArtCatalog from '@components/Article/Catalog';
+// import ArtCatalog from '@components/Article/Catalog';
 import ArtContent from '@components/Article/Content';
 import Terminal from '@components/Terminal';
 import { storeContext } from '@tools/StoreProvider';
@@ -43,16 +43,14 @@ const Content: React.FC<RouteComponentProps<ContentRouterProps>> = (routerProps:
 
 
     return (
-        // <div className="content-grid">
-        //     <ArtContent data={data}></ArtContent>
-        //     <ArtCatalog title='目录' catalogList={data.catalogList}></ArtCatalog>
-        // </div>
+    
         <section className='content-grid'>
             <div></div>
             <ArtContent data={data}></ArtContent>
-            <ArtCatalog title='目录' catalogList={data?.catalogList}></ArtCatalog>
+            {/* <ArtCatalog title='目录' catalogList={data?.catalogList}></ArtCatalog> */}
             <div></div>
         </section>
+        
     )
 }
 
