@@ -4,37 +4,43 @@ import {
 } from 'react-router-dom';
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
-import Home from '@pages/Home';
-
-// import { string } from "prop-types";
+import Home from '@pages/Home/index';
+import  ArtickeList  from '@pages/ArticleList';
+import  ArticleDetail  from '@pages/ArticleDetail';
 const { lazy, Suspense } = React;
-const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
-const right = lazy(() => import(/* webpackChunkName:"Nav" */ '@components/RightComponet'));
+const AboutUs = lazy(() => import( '@pages/AboutUs'));
+
 interface YDProps extends RouteProps {
-  auth?: boolean;
+  auth?: boolean,
+  routes?:Array<YDProps>
 }
-export const routes: YDProps[] = [
+export const firstRoute: YDProps[] = [
+  //'/'路由一定要在第一项
   {
     path: '/',
-    exact: true,
+    auth: true,
     component: Home,
-    // auth: true,
-  },
-  {
-    path: '/page/:page',
-    exact: true,
-    component: Home,
-    // auth: true,
-  },
-  {
-    path: '/AboutUs',
-    exact: true,
-    component: AboutUs,
+    routes: [{
+      path: '/home',
+      exact: true,
+      auth: true,
+      component:ArtickeList,
+    },
+    {
+      path: '/about',
+      exact: true,
+      component: AboutUs,
+    },
+  ]
+  },{
+    path: '/article/detail',
+    auth: true,
+    component:ArticleDetail
   }
 ];
 
 // 对状态属性进行监听
-const Routes = (token: string) => (
+const Routes = (routes=firstRoute)=>(token: string) => (
   <Suspense fallback={<Loading />}>
     <Switch>
       {routes.map((r, index) => {
