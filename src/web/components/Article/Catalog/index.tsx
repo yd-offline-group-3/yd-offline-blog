@@ -10,7 +10,7 @@ interface ICatalog {
     title: string
 }
 
-const Catalog: React.FC<ICatalog> = (props) => {
+const ArtCatalog: React.FC<ICatalog> = (props) => {
 
     const [id, setId] = useState('');
 
@@ -72,4 +72,4 @@ const Catalog: React.FC<ICatalog> = (props) => {
     )
 }
 
-export default Catalog;
+export default ArtCatalog;

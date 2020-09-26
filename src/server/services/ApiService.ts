@@ -199,12 +199,14 @@ class ApiService implements IApi {
         href: `#${$(miniElement).attr('id')}`
       });
     });
-    return new Promise<IData<{ htmlStr: string, catalogList: Array<{ title: string, type: string, href: string }> }>>((resolve) => {
+    return new Promise<IData<{ title: string, htmlStr: string, catalogList: Array<{ title: string, type: string, href: string }> }>>((resolve) => {
       resolve({
         code: 200,
         message: 'successful',
         result: {
           htmlStr: ($(".post-content").html() || ''),
+          title: ($(".post-title").text() || ''),
+          subTitle: ($(".post-meta,.meta-date").text() || ''),
           catalogList
         }
       });
