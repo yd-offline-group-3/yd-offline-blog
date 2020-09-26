@@ -1,4 +1,4 @@
-import { GET, route } from 'awilix-koa';
+import { GET, POST, route } from 'awilix-koa';
 import Router from 'koa-router';
 import { IApi } from '@interfaces/IApi';
 
@@ -63,6 +63,24 @@ class ApiController {
     ctx.body = {
       ...data,
     };
+  }
+
+  @route('/blog-content')
+  @POST()
+  async actionBlogContent(
+    ctx: Router.IRouterContext,
+  ): Promise<void> {
+    return new Promise((resolve, reject) => {
+      ctx.req.on('data', async (dataBuffer: Buffer) => {
+        const postData: { post: string } = JSON.parse(dataBuffer.toString());
+        const data = await this.apiService.getBlogContent(postData.post);
+        ctx.body = {
+          htmlStr: data.htmlStr,
+          catalogList: data.catalogList
+        };
+        resolve();
+      });
+    });
   }
 }
 export default ApiController;

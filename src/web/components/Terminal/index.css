@@ -1,0 +1,18 @@
+.components-terminal {
+  height: calc(100% - 25px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  cursor: text;
+  box-sizing: border-box;
+}
+
+#user-input {
+  background-color: transparent;
+  outline: none;
+}
+
+#tip {
+  opacity: 0.3;
+}

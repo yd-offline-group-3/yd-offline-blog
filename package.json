@@ -1,5 +1,5 @@
 {
-  "name": "yd-react-generator",
+  "name": "yd-blog",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "@testing-library/react": "^10.4.9",
     "@types/cheerio": "^0.22.21",
     "@types/co": "^4.6.2",
+    "@types/figlet": "^1.2.0",
     "@types/jest": "^26.0.10",
     "@types/koa": "^2.11.3",
     "@types/koa-router": "^7.4.1",
@@ -82,11 +83,12 @@
   },
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.0",
-    "antd": "^4.6.3",
+    "antd": "^4.6.5",
     "awilix": "^4.2.6",
     "awilix-koa": "^4.0.0",
     "cheerio": "^1.0.0-rc.3",
     "co": "^4.6.0",
+    "figlet": "^1.5.0",
     "immutable": "^4.0.0-rc.12",
     "jest": "^26.4.2",
     "koa": "^2.13.0",
@@ -103,6 +105,7 @@
     "react-dom": "^16.13.1",
     "react-hooks-fetch": "^0.14.0",
     "react-query": "^2.5.11",
+    "react-rnd": "^10.2.3",
     "react-router-dom": "^5.2.0",
     "superagent": "^6.1.0",
     "superagent-charset": "^1.2.0",

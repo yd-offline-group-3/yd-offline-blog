@@ -1,0 +1,127 @@
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 30px 0 10px;
+}
+
+p {
+  margin: 30px 0;
+}
+
+.post-content img,
+.comment-content img {
+  max-width: 80%;
+  margin: auto;
+  display: block;
+}
+
+.post-content img {
+  padding: 1em 0;
+  margin: auto;
+  display: block;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.post-content {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #444;
+  padding-top: 27px;
+}
+
+.post-content h3,
+.post-content h2 {
+  margin: 1.4em 0 1.1em;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+
+.post-content a,
+.comment-content a {
+  color: #337ab7;
+  text-decoration: none;
+
+  &:hover {
+    color: #0085a1;
+    text-decoration: underline;
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: auto 195px;
+}
+
+.terminal-header {
+  height: 25px;
+  background-color: rgb(246, 246, 246);
+  border-bottom: 1px solid rgb(226, 226, 226);
+  line-height: 25px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: default;
+  position: relative;
+}
+
+.dialog-button {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  line-height: 13px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.close-button {
+  background-color: rgb(238, 108, 96);
+  left: 10px;
+  top: 5px;
+  &:hover {
+    &::after {
+      content: 'x';
+    }
+  }
+}
+
+.mini-button {
+  background-color: rgb(246, 194, 81);
+  left: 35px;
+  top: 5px;
+}
+
+.minimize-button:hover::after {
+  content: '-';
+}
+
+.reset-button:hover::after {
+  content: '+';
+}
+
+@media print, screen and (max-width: 680px) {
+  .post-content img {
+    padding: 0.2em 0;
+  }
+}
+
+@media print, screen and (max-width: 1290px) {
+  .post-content img {
+    max-width: 100%;
+  }
+}
+
+@media print, screen and (max-width: 1057px) {
+  .post-content {
+    font-size: 14px;
+  }
+}

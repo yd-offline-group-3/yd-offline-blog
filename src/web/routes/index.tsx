@@ -9,6 +9,7 @@ import NotFound from '@components/NotFound';
 const { lazy, Suspense } = React;
 
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
+const Content = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@components/Article/Content'));
 interface YDProps extends RouteProps {
   auth?: boolean;
 }
@@ -23,6 +24,11 @@ export const routes: YDProps[] = [
     path: '/AboutUs',
     exact: true,
     component: AboutUs,
+  },
+  {
+    path: '/Content',
+    exact: true,
+    component: Content,
   }
 ];
 
