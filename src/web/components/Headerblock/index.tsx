@@ -1,28 +1,29 @@
-import React,{FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 import './index.css';
 import Nav from '@components/Nav';
-import Footer from '@components/Footer';
+import { storeContext } from '@tools/StoreProvider';
+import { useObserver } from 'mobx-react-lite';
 
-type IProp = {
-    title: string,
-    subTitle: string
-}
-const HeaderBlock:FC<IProp> = (props:IProp) => {
-    let [isShow, setIsShow] = useState(true) 
-    return (
+// type IProp = {
+//     title: string,
+//     subTitle: string
+// }
+const HeaderBlock = () => {
+    // let [isShow, setIsShow] = useState(true)
+    const store = React.useContext(storeContext);
+    return useObserver(() => (
         <>
             <div className='wrapper'>
                 <div className="nav">
                     <Nav></Nav>
                 </div>
                 <div className="content">
-                    <h1>Hello World</h1>
-                    <p>Welcome Baby!</p>
+                    <h1>{store.header.title}</h1>
+                    <p>{store.header.subTitle}</p>
                 </div>
             </div>
-            <Footer></Footer>
         </>
-    )
+    ));
 }
 
 

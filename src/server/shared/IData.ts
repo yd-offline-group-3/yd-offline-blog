@@ -1,6 +1,6 @@
-export interface IData {
+export interface IData<T> {
   item?: string;
-  result?: Array<number | string> | object;
+  result?: Array<T> | object;
   code?:200,
   message?: string
 }

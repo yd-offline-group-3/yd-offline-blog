@@ -8,7 +8,7 @@ let arr: any = [];
 
 class ApiService implements IApi {
   getInfo() {
-    return new Promise<IData>((resolve) => {
+    return new Promise<IData<number | string>>((resolve) => {
       resolve({
         item: '我是后台数据🌺',
         result: [1, 'next'],
@@ -16,8 +16,11 @@ class ApiService implements IApi {
     });
   }
 
-  async getBlogList() {
+  async getBlogList(page: number) {
     let url = 'http://blog.yidengxuetang.com/'; //target地址
+    if (page > 1) {
+      url = `http://blog.yidengxuetang.com/page/${page}/`;
+    }
     let data = await superagent.get(url).charset('utf-8').buffer(true);
     let html = data.text,
       $ = cheerio.load(html, {
@@ -33,9 +36,10 @@ class ApiService implements IApi {
       const date = $('date', element).text().split('\n')[1].trim();
       const type = $('.post-meta .meta-category a', element).text().trim();
       const content = $('.post-content', element).text().trim();
-      arr.push({ title, date, type, content });
+      const link = $('article header h1 a', element).attr('href')?.substring(35);
+      arr.push({ title, date, type, content, link });
     })
-    return new Promise<IData>((resolve) => {
+    return new Promise<IData<number | string>>((resolve) => {
       resolve({
         code: 200,
         message: 'successful',
@@ -78,7 +82,7 @@ class ApiService implements IApi {
     arrType.forEach((i: any, index: number) => {
       arrContent[index].type = i.type;
     })
-    return new Promise<IData>((resolve) => {
+    return new Promise<IData<number | string>>((resolve) => {
       resolve({
         code: 200,
         message: 'successful',
@@ -121,7 +125,7 @@ class ApiService implements IApi {
     arrTime.forEach((i: any, index: number) => {
       arrContent[index].time = i.time;
     })
-    return new Promise<IData>((resolve) => {
+    return new Promise<IData<number | string>>((resolve) => {
       resolve({
         code: 200,
         message: 'successful',
@@ -163,7 +167,7 @@ class ApiService implements IApi {
       mapTitle[title]
     })
 
-    return new Promise<IData>((resolve) => {
+    return new Promise<IData<number | string>>((resolve) => {
       resolve({
         code: 200,
         message: 'successful',
@@ -195,10 +199,14 @@ class ApiService implements IApi {
         href: `#${$(miniElement).attr('id')}`
       });
     });
-    return new Promise<{ htmlStr: string, catalogList: Array<{ title: string, type: string, href: string }> }>((resolve) => {
+    return new Promise<IData<{ htmlStr: string, catalogList: Array<{ title: string, type: string, href: string }> }>>((resolve) => {
       resolve({
-        htmlStr: ($(".post-content").html() || ''),
-        catalogList
+        code: 200,
+        message: 'successful',
+        result: {
+          htmlStr: ($(".post-content").html() || ''),
+          catalogList
+        }
       });
     });
   }
