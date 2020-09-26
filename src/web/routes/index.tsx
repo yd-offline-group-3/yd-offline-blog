@@ -37,16 +37,12 @@ const Routes = (token: string) => (
         const LazyCom = component;
         return (
           <Route
-            // eslint-disable-next-line react/no-array-index-key
             key={index}
             path={path}
             exact={exact}
-            // eslint-disable-next-line no-nested-ternary
             render={(props) => (!r.auth ? (
-              // eslint-disable-next-line react/jsx-props-no-spreading
               <LazyCom {...props} />
             ) : token ? (
-              // eslint-disable-next-line react/jsx-props-no-spreading
               <LazyCom {...props} />
             ) : (
                   <Redirect
