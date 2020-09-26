@@ -1,9 +1,0 @@
-.desc-container{
-    margin-top:100px;
-    margin-left:35px;
-  & .desc{
-      color:#ffffff;
-      font-size:26px;
-      width:250px;
-  }  
-}
