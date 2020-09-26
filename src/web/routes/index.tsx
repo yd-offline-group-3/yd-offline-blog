@@ -62,7 +62,7 @@ export const firstRoute: YDProps[] = [
 ];
 
 // 对状态属性进行监听
-const Routes = (routes=firstRoute)=>(token: string) => (
+const Routes = (routes:YDProps[]=firstRoute)=>(token: string) => (
   <Suspense fallback={<Loading />}>
     <Switch>
       {routes.map((r, index) => {
