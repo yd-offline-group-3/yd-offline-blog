@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Affix, Button } from 'antd';
+import { Affix } from 'antd';
 
 import './index.css';
 
