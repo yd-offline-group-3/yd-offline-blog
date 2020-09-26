@@ -8,7 +8,11 @@ import Home from '@pages/Home/index';
 import  ArtickeList  from '@pages/ArticleList';
 import  ArticleDetail  from '@pages/ArticleDetail';
 const { lazy, Suspense } = React;
-const AboutUs = lazy(() => import( '@pages/AboutUs'));
+
+const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
+const Content = lazy(() => import(/* webpackChunkName:"Nav" */ '@pages/Content'));
+// 分类
+const Categories = lazy(() => import(/* webpackChunkName:"Categories" */ '@pages/Categories'));
 
 interface YDProps extends RouteProps {
   auth?: boolean,
@@ -32,11 +36,29 @@ export const firstRoute: YDProps[] = [
       component: AboutUs,
     },
   ]
+
   },{
     path: '/article/detail',
     auth: true,
     component:ArticleDetail
-  }
+    // auth: true,
+  },
+  // {
+  //   path: '/page/:page',
+  //   exact: true,
+  //   component: Home,
+  //   // auth: true,
+  // },
+  // {
+  //   path: '/content/:post',
+  //   exact: true,
+  //   component: Content,
+  // },
+  // {
+  //   path: '/categories',
+  //   exact: true,
+  //   component: Categories
+  // }
 ];
 
 // 对状态属性进行监听

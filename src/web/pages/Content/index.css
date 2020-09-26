@@ -1,0 +1,5 @@
+.content-grid {
+  display: grid;
+  grid-template-columns: auto auto 195px auto;
+  grid-column-gap: 15px;
+}
