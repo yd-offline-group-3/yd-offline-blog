@@ -11,6 +11,8 @@ const { lazy, Suspense } = React;
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
 const right = lazy(() => import(/* webpackChunkName:"Nav" */ '@components/RightComponet'));
 const Content = lazy(() => import(/* webpackChunkName:"Nav" */ '@pages/Content'));
+// 分类
+const Categories = lazy(() => import(/* webpackChunkName:"Categories" */ '@pages/Categories'));
 interface YDProps extends RouteProps {
   auth?: boolean;
 }
@@ -36,6 +38,11 @@ export const routes: YDProps[] = [
     path: '/content/:post',
     exact: true,
     component: Content,
+  },
+  {
+    path: '/categories',
+    exact: true,
+    component: Categories
   }
 ];
 
