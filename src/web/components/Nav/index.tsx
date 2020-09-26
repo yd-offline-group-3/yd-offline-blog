@@ -15,7 +15,7 @@ const navConfigList: Array<NavItem> = [
     },
     {
         name: '分类',
-        link: '/',
+        link: '/categories',
     },
     {
         name: '归档',
@@ -51,7 +51,7 @@ const Nav: FC = () => {
                     {
                         navConfigList.map(item => {
                             return <li key={item.name}>
-                                <a href={item.link}>{item.name}</a>
+                                <a href={item.link} target={item.isOut ? '__black' : null}>{item.name}</a>
                             </li>
                         })
                     }
