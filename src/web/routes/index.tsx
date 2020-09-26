@@ -5,9 +5,9 @@ import {
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
 import Home from '@pages/Home';
+
 // import { string } from "prop-types";
 const { lazy, Suspense } = React;
-
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
 const right = lazy(() => import(/* webpackChunkName:"Nav" */ '@components/RightComponet'));
 const Content = lazy(() => import(/* webpackChunkName:"Nav" */ '@pages/Content'));
@@ -48,16 +48,12 @@ const Routes = (token: string) => (
         const LazyCom = component;
         return (
           <Route
-            // eslint-disable-next-line react/no-array-index-key
             key={index}
             path={path}
             exact={exact}
-            // eslint-disable-next-line no-nested-ternary
             render={(props) => (!r.auth ? (
-              // eslint-disable-next-line react/jsx-props-no-spreading
               <LazyCom {...props} />
             ) : token ? (
-              // eslint-disable-next-line react/jsx-props-no-spreading
               <LazyCom {...props} />
             ) : (
                   <Redirect

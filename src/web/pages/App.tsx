@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import routes from '@routes/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useRootData } from 'web/tools/useRootData';
@@ -11,7 +11,7 @@ const App = () => {
   const StoreProvider = CreateStoreProvider(createStore, storeContext);
   return (
     <StoreProvider>
-      <HeaderBlock></HeaderBlock>
+      {<HeaderBlock></HeaderBlock>}
       <Router basename="/">{routes(token)}</Router>
       <Footer></Footer>
     </StoreProvider>

@@ -9,7 +9,7 @@ export interface IListProps {
     articleSimpleDesc: string,
 
 }
-const ArtickeList: React.FC<IListProps> = function ({ link, articleHeadTitle, articleSecTitle, articleSimpleDesc, authorAndDate }) {
+export const ArtickeList: React.FC<IListProps> = function ({ link, articleHeadTitle, articleSecTitle, articleSimpleDesc, authorAndDate }) {
     return <section className='article-list'>
         <NavLink to={link}>
             <h1 className='article-title'>{articleHeadTitle}</h1>
@@ -19,4 +19,3 @@ const ArtickeList: React.FC<IListProps> = function ({ link, articleHeadTitle, ar
         <p className='author-date'>{authorAndDate}</p>
     </section>
 }
-export default ArtickeList
