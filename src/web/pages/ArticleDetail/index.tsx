@@ -35,7 +35,11 @@ const ArticleDetail: React.FC<RouteComponentProps<ContentRouterProps>> = (router
   if (isLoading) return <Loading />;
   if (error) return <h1>出错了~</h1>;
   const content = data.result as IArticleContent;
-  store.header.setTitle(content.title, content.subTitle);
+  // 不改为异步会报错：Cannot update a component (`HeaderBlock`) while rendering a different component (`ArticleDetail`). To locate the bad setState() call inside `ArticleDetail`
+  // 暂时没找到其他解决方法
+  setTimeout(()=>{
+    store.header.setTitle(content.title, content.subTitle);
+  });
   
 
 
