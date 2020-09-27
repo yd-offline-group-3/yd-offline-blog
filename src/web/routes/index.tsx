@@ -5,8 +5,8 @@ import {
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
 import Home from '@pages/Home/index';
-import  ArtickeList  from '@pages/ArticleList';
-import  ArticleDetail  from '@pages/ArticleDetail';
+import ArtickeList from '@pages/ArticleList';
+import ArticleDetail from '@pages/ArticleDetail';
 const { lazy, Suspense } = React;
 
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
@@ -16,31 +16,31 @@ const Categories = lazy(() => import(/* webpackChunkName:"Categories" */ '@pages
 
 interface YDProps extends RouteProps {
   auth?: boolean,
-  routes?:Array<YDProps>
+  routes?: Array<YDProps>
 }
 export const firstRoute: YDProps[] = [
   //'/'路由一定要在第一项
   {
     path: '/',
-    auth: true,
+    // auth: true,
     component: Home,
     routes: [{
       path: '/home',
       exact: true,
-      auth: true,
-      component:ArtickeList,
+      // auth: true,
+      component: ArtickeList,
     },
     {
       path: '/about',
       exact: true,
       component: AboutUs,
     },
-  ]
+    ]
 
-  },{
+  }, {
     path: '/article/detail',
-    auth: true,
-    component:ArticleDetail
+    // auth: true,
+    component: ArticleDetail
     // auth: true,
   },
   // {
@@ -62,7 +62,7 @@ export const firstRoute: YDProps[] = [
 ];
 
 // 对状态属性进行监听
-const Routes = (routes:YDProps[]=firstRoute)=>(token: string) => (
+const Routes = (routes: YDProps[] = firstRoute) => (token: string) => (
   <Suspense fallback={<Loading />}>
     <Switch>
       {routes.map((r, index) => {
