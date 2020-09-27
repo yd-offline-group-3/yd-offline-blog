@@ -1,0 +1,30 @@
+.post-archive {
+    font-size: 15px;
+    line-height: 2;
+    padding-bottom: .8em;
+    & a {
+        color: #404040;
+        text-decoration: none;
+    }
+    & h2 {
+        margin-bottom: 20px;
+        font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        & span {
+            color: red;
+        }
+    }
+    & .listing {
+        & li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eeeeee;
+            &:last-child {
+                border-bottom: none;
+            }
+            & .date {
+                display: inline-block;
+                padding-right: 10px;
+                color: blue;
+            }
+        }
+    }
+}
