@@ -5,6 +5,7 @@ import { useRootData } from 'web/tools/useRootData';
 import CreateStoreProvider, { storeContext } from '@tools/StoreProvider';
 import { createStore } from '@models/root.store';
 const App = () => {
+  localStorage.setItem("token", "Smith");
   const token = useRootData((store) => store.home.token);
   const StoreProvider = CreateStoreProvider(createStore, storeContext);
   return (

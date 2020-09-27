@@ -66,8 +66,8 @@ export default App;
 //                     link: '/content/' + art.link.replace(/\//g, '__'),
 //                     articleHeadTitle: art.title,
 //                     articleSecTitle: '',
-//                     articleSimpleDesc: art.content,
-//                     authorAndDate: art.date
+//                     content: art.content,
+//                     date: art.date
 //                 }
 //             })));
 //     }
