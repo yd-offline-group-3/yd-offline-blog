@@ -22,12 +22,10 @@ export const firstRoute: YDProps[] = [
   //'/'路由一定要在第一项
   {
     path: '/',
-    auth: true,
     component: Home,
     routes: [{
       path: '/home',
       exact: true,
-      auth: true,
       component:ArtickeList,
     },
     {
@@ -36,12 +34,10 @@ export const firstRoute: YDProps[] = [
       component: AboutUs,
     },
   ]
-
   },{
     path: '/article/detail',
-    auth: true,
-    component:ArticleDetail
-    // auth: true,
+    component:ArticleDetail,
+    exact: true
   },
   // {
   //   path: '/page/:page',
@@ -80,7 +76,7 @@ const Routes = (routes:YDProps[]=firstRoute)=>(token: string) => (
             ) : (
                   <Redirect
                     to={{
-                      pathname: '/',
+                      pathname: '/home',
                       state: { from: props.location },
                     }}
                   />

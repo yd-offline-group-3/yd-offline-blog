@@ -201,7 +201,7 @@ const Terminal = (props: IProps) => {
         return () => {
             observer.disconnect();
         }
-    });
+    },);
 
     return (
         <>
