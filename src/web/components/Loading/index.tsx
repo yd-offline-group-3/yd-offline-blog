@@ -1,12 +1,11 @@
 import "./loading.css";
-import * as React from "react";
+import React from "react";
+
 const Loading = () => {
   return (
-    <>
-      <div className="components-loading">
-        <span>加载中...</span>
-      </div>
-    </>
+    <div className='loading-box-view'>
+      <div className='loading-box'></div>
+    </div>
   );
 };
 export default Loading;

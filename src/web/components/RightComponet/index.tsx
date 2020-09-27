@@ -38,7 +38,7 @@ const RightComponet: FC = (): JSX.Element => {
                         <figure>
                             <img src={account} alt="前端先锋" />
                             <figcaption>
-                                请扫描挂住公众号:
+                                请扫描关注公众号:
                                 <br />
                                 前端先锋
                             </figcaption>

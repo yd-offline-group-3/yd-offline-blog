@@ -45,7 +45,7 @@ const Content: React.FC<RouteComponentProps<ContentRouterProps>> = (routerProps:
     
         <section className='content-grid'>
             <div></div>
-            <ArtContent data={data}></ArtContent>
+            {/* <ArtContent data={data}></ArtContent> */}
             {/* <ArtCatalog title='目录' catalogList={data?.catalogList}></ArtCatalog> */}
             <div></div>
         </section>

@@ -4,10 +4,10 @@ import { IArticleContent } from 'web/types/Article';
 
 import './index.css';
 
-const ArtContent = ({ data }: { data: IArticleContent }) => {
+const ArtContent = ({ htmlStr }: { htmlStr: string }) => {
 
     return (
-        <div className='post-content' dangerouslySetInnerHTML={{ __html: data?.htmlStr }}>
+        <div className='post-content' dangerouslySetInnerHTML={{ __html: htmlStr }}>
 
         </div>
     )

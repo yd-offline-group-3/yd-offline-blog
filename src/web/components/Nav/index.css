@@ -35,11 +35,11 @@ a {
             & > li {
                 line-height: var(--navHeight);
                 padding: 0 20px;
-                cursor: pointer;
+                /* cursor: pointer; */
                 & > a {
                     color: var(--navFontColor);
                 }
-                &:hover {
+                & a:hover {
                     opacity: 0.8;
                 }
             }

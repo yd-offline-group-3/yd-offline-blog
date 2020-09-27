@@ -15,7 +15,7 @@ const navConfigList: Array<NavItem> = [
     },
     {
         name: '分类',
-        link: '/categories',
+        link: '/home/categories',
     },
     {
         name: '归档',
@@ -23,7 +23,7 @@ const navConfigList: Array<NavItem> = [
     },
     {
         name: '关于',
-        link: '/AboutUs',
+        link: '/about',
     },
     // {
     //     name: '京程一灯',

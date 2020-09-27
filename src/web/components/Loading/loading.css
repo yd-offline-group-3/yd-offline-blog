@@ -1,5 +1,70 @@
-.components-loading {
-  & span {
-    color: orange;
+.loading-box-view {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.loading-box {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loading-box::before {
+  content: '';
+  height: 8px;
+  width: 50px;
+  background: #000;
+  opacity: 0.2;
+  border-radius: 50%;
+  position: absolute;
+  top: 67px;
+  left: 0;
+  animation: shadow 0.5s linear infinite;
+}
+
+.loading-box::after {
+  border-radius: 5px;
+  background: #1890ff;
+  animation: rotate 0.5s linear infinite;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes shadow {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(20px) scale(1.1, 0.9);
+  }
+
+  75% {
+    ransform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }

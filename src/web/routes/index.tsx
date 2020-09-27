@@ -5,8 +5,8 @@ import {
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
 import Layout from '@pages/Layout/index';
-import  ArtickeList  from '@pages/ArticleList';
-import  ArticleDetail  from '@pages/ArticleDetail';
+import ArtickeList from '@pages/ArticleList';
+import ArticleDetail from '@pages/ArticleDetail';
 const { lazy, Suspense } = React;
 
 const AboutUs = lazy(() => import(/* webpackChunkName:"AboutUs" */ '@pages/AboutUs'));
@@ -21,23 +21,29 @@ interface YDProps extends RouteProps {
 export const firstRoute: YDProps[] = [
   //'/'路由一定要在第一项
   {
-    path: '/',
+    path: '/home',
     component: Layout,
     routes: [{
-      path: '/',
+      path: '/home/artickList',
       exact: true,
-      component:ArtickeList,
+      component: ArtickeList,
     },
     {
-      path: '/about',
+      path: '/home/categories',
       exact: true,
-      component: AboutUs,
+      component: Categories,
     },
-  ]
-  },{
-    path: '/article/detail',
-    component:ArticleDetail,
+    ]
+  },
+  {
+    path: '/article/detail/:post',
+    component: ArticleDetail,
     exact: true
+  },
+  {
+    path: '/about',
+    exact: true,
+    component: AboutUs,
   },
   // {
   //   path: '/page/:page',
@@ -61,6 +67,9 @@ export const firstRoute: YDProps[] = [
 const Routes = (routes: YDProps[] = firstRoute) => (token: string) => (
   <Suspense fallback={<Loading />}>
     <Switch>
+      <Route path='/' exact render={() => (
+        <Redirect to='/home/artickList' />
+      )} />
       {routes.map((r, index) => {
         const { path, exact, component } = r;
         const LazyCom = component;

@@ -10,12 +10,13 @@ interface ICatalog {
     title: string
 }
 
-const ArtCatalog: React.FC<ICatalog> = (props) => {
+const ArtCatalog: React.FC<ICatalog> = (props: ICatalog) => {
 
     const [id, setId] = useState('');
 
-    const onScroll = function onScroll(this: Document, e: Event) {
-        // console.log(window.pageYOffset);
+    const [sidebarFixed, setSidebarFixed] = useState<boolean>(false);
+
+    const onScroll = function onScroll(e: Event) {
         if (e.target === document) {
             let newId = '';
             let index = -1;
@@ -35,6 +36,15 @@ const ArtCatalog: React.FC<ICatalog> = (props) => {
                 const scrollTop = (index + 1) * 30 + 100 - catalogHeight;
                 document.getElementById('side-catalog').scrollTop = scrollTop >= 0 ? scrollTop : 0;
             }
+            toogleSidebarFixed();
+        }
+    }
+
+    const toogleSidebarFixed = () => {
+        if (document.documentElement.scrollTop > 400) {
+            setSidebarFixed(true);
+        } else {
+            setSidebarFixed(false);
         }
     }
 
@@ -46,29 +56,27 @@ const ArtCatalog: React.FC<ICatalog> = (props) => {
     });
 
     return (
-        <Affix offsetTop={20}>
-            <div className="sidebar-container catalog-container">
-                <div id="side-catalog" className="side-catalog">
-                    <hr />
-                    <h5>{props.title}</h5>
-                    <ul className="catalog-body">
-                        {
-                            props.catalogList?.map((catalog, index) => {
-                                const catalogId = catalog.href.replace('#', '');
-                                return (
-                                    <li
-                                        id={'catalog-' + catalogId}
-                                        key={index}
-                                        className={`${catalog.type}_nav${(id === catalogId ? ' active' : '')}`}>
-                                        <a href={catalog.href}>{catalog.title}</a>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+        <div className={`sidebar-container catalog-container`}>
+            <div id="side-catalog" className={`side-catalog ${(sidebarFixed ? 'sidebar-fixed' : '')}`}>
+                <hr />
+                <h5>{props.title}</h5>
+                <ul className="catalog-body">
+                    {
+                        props.catalogList?.map((catalog, index) => {
+                            const catalogId = catalog.href.replace('#', '');
+                            return (
+                                <li
+                                    id={'catalog-' + catalogId}
+                                    key={index}
+                                    className={`${catalog.type}_nav${(id === catalogId ? ' active' : '')}`}>
+                                    <a href={catalog.href}>{catalog.title}</a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
             </div>
-        </Affix>
+        </div>
     )
 }
 
