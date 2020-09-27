@@ -21,7 +21,8 @@
       "@models/*": ["web/models/*"],
       "@routes/*": ["web/routes/*"],
       "@pages/*": ["web/pages/*"],
-      "@tools/*": ["web/tools/*"]
+      "@tools/*": ["web/tools/*"],
+      "@types/*": ["web/types/*"]
     }
   },
   "include": ["src", "tests"],

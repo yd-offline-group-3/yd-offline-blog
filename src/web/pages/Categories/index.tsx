@@ -41,7 +41,6 @@ const Home: React.FC<RouteComponentProps<ContentRouterProps>> = ({ history, matc
             ).then(data => {
                 setCatalen(data.result.length)
                 setArticleList(data.result.map((item: CataResultItem) => {
-                    
                     return {
                         type: item.type,
                         typeLink: `http://blog.yidengxuetang.com/categories/${item.type}`,

@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
-import Home from '@pages/Home/index';
+import Layout from '@pages/Layout/index';
 import  ArtickeList  from '@pages/ArticleList';
 import  ArticleDetail  from '@pages/ArticleDetail';
 const { lazy, Suspense } = React;
@@ -22,9 +22,9 @@ export const firstRoute: YDProps[] = [
   //'/'路由一定要在第一项
   {
     path: '/',
-    component: Home,
+    component: Layout,
     routes: [{
-      path: '/home',
+      path: '/',
       exact: true,
       component:ArtickeList,
     },
@@ -42,7 +42,7 @@ export const firstRoute: YDProps[] = [
   // {
   //   path: '/page/:page',
   //   exact: true,
-  //   component: Home,
+  //   component: Layout,
   //   // auth: true,
   // },
   // {
@@ -76,7 +76,7 @@ const Routes = (routes:YDProps[]=firstRoute)=>(token: string) => (
             ) : (
                   <Redirect
                     to={{
-                      pathname: '/home',
+                      pathname: '/Layout',
                       state: { from: props.location },
                     }}
                   />

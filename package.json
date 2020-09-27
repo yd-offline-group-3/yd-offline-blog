@@ -104,7 +104,6 @@
     "react": "^16.13.1",
     "react-bmap": "^1.0.119",
     "react-dom": "^16.13.1",
-    "react-hooks-fetch": "^0.14.0",
     "react-query": "^2.5.11",
     "react-rnd": "^10.2.3",
     "react-router-dom": "^5.2.0",
