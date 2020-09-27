@@ -20,7 +20,7 @@ interface ContentRouterProps {
 const ArticleDetail: React.FC<RouteComponentProps<ContentRouterProps>> = (routerProps: {
   match: { params: { post: string } };
 }) => {
-
+  const store = React.useContext(storeContext);
   // const [content, setContent] = useState<IArticleContent>(null);
   let post = routerProps.match?.params?.post?.replace(/__/g, '\/');
 
@@ -29,15 +29,14 @@ const ArticleDetail: React.FC<RouteComponentProps<ContentRouterProps>> = (router
     error,
     data,
   }: { isLoading: boolean; error: Error; data: BlogContentResult } = useQuery(
-    'repoData',
+    'getContent',
     () => bcService.getBlogContent(post)
   );
   if (isLoading) return <Loading />;
   if (error) return <h1>出错了~</h1>;
   const content = data.result as IArticleContent;
-  
-  const store = React.useContext(storeContext);
   store.header.setTitle(content.title, content.subTitle);
+  
 
 
   return (
